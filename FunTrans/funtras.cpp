@@ -1,7 +1,7 @@
 #include "funtras.hpp"
 
 // Calcula el factorial de n -> (n)!
-double funtras::fact(int n){
+long long funtras::fact(int n){
     if (n == 0)
         return 1;
     return n* funtras::fact(n-1);

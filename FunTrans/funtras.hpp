@@ -30,7 +30,7 @@ class funtras {
          * @param n Numero entero positivo.
          * @return Valor de (n)!
          */ 
-        static double fact(int n);
+        static long long fact(int n);
 
         /**
          * @brief Determina el valor inicial de x_o para la división div_t.
