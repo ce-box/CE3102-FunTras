@@ -34,7 +34,7 @@ double funtras::div_t(double x){
     double x_sgt = x * (2 - a*x); // Calcular el valor siguiente
     int k = 1;
 
-    while (abs(x_sgt - x)/x_sgt > tolerancia || k < max_iteraciones){
+    while (abs((x_sgt - x)/x_sgt) > tolerancia || k < max_iteraciones){
         double tmp = x_sgt;
         x_sgt = x * (2 - a*x); 
         x = x_sgt;
