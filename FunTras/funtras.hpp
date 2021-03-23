@@ -1,21 +1,20 @@
-/* ------------------------------------------------------------
+/* ---------------------------------------------------------------------------
  * file: funtras.hpp
- * autores: @estalvgs1999
+ * autores: Esteban Alvarado, Martín Calderón, Olman Castro, Agustín Venegas
  * 
  * @brief Biblioteca estatica que permite aproximar el valor numerico de
  *        un conjunto de funciones trascendentes de variable real utili-
  *        zando unicamente las operaciones básicas: suma(+), resta(-) y
  *        multiplicacion(*).
  * 
- * @version 0.1
- */
+ * @version 1.0
+ * ---------------------------------------------------------------------------*/
 
 #ifndef _FUNTRAS_H
 #define _FUNTRAS_H
 
 // Bibliotecas
 #include <iostream>
-
 #include <math.h>
 
 
