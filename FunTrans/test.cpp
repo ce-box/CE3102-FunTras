@@ -69,9 +69,13 @@ void sqrt_t_test(){
 
 void root_t_test(){
     cout << funtras::root_t(36,5) << endl;
-    cout << funtras::root_t(363,0) << endl;
+    cout << funtras::root_t(363,3) << endl;
 }
 
+void log_t_test(){
+    cout << funtras::log_t(50,3) << endl;
+    cout << funtras::log_t(27,7) << endl;
+}
 int main(int argc, char const *argv[])
 {
     power_test();
@@ -88,5 +92,6 @@ int main(int argc, char const *argv[])
     atan_t_test();
     sqrt_t_test();
     root_t_test();
+    log_t_test();
     return 0;
 }

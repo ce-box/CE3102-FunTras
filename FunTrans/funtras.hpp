@@ -137,10 +137,18 @@ class funtras {
         /**
          * @brief Realiza la aproximacion de una raiz con indice a de la variable x.
          * @param x Valor de la variable.
-         * @param a Valor del indice de la raiz
+         * @param a Valor del indice de la raiz.
          * @returnEl resultado de raiz con indice a de x.
          */
         static double root_t(double x, double a);
+
+        /**
+         * @brief Realiza la aproximacion de logaritmo de base a para la variable x.
+         * @param x Valor de la variable.
+         * @param a Valor de la base del logaritmo.
+         * @return resultado del logaritmo base a, de la variable x.
+         */
+        static double log_t(double x, double a);
 };
 
 #endif // _FUNTRAS_H

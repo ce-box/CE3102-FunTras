@@ -155,21 +155,27 @@ double funtras::exp_t(double x){
 //Logaritmo natural
 //listo
 double funtras::ln_t(double x){
-    int n=0;
-    double prefix=(2*(x-1)/(x+1));
-    double current=0;
-    double next=0;
-    while(n<max_iteraciones){
-        if(abs(prefix*next-prefix*current)<tolerancia && n!=0){
-            break;
-        }else{
-            current=current+(((1+0.0)/(2*n+1))*funtras::power_t(2*n,((x-1+0.0)*funtras::div_t(x+1))));
-            n++;
-            next=current+(((1+0.0)/(2*n+1))*funtras::power_t(2*n,((x-1+0.0)*funtras::div_t(x+1))));
+    if(x>0){
+        int n=0;
+        double prefix=(2*(x-1)/(x+1));
+        double current=0;
+        double next=0;
+        while(n<max_iteraciones){
+            if(abs(prefix*next-prefix*current)<tolerancia && n!=0){
+                break;
+            }else{
+                current=current+(((1+0.0)/(2*n+1))*funtras::power_t(2*n,((x-1+0.0)*funtras::div_t(x+1))));
+                n++;
+                next=current+(((1+0.0)/(2*n+1))*funtras::power_t(2*n,((x-1+0.0)*funtras::div_t(x+1))));
+            }
         }
+
+        return prefix*current;
+
+    }else{
+        throw std::exception();
     }
 
-    return prefix*current;
 }
 
 //Tangente
@@ -253,6 +259,16 @@ double funtras::root_t(double x,double a){
     }else{
 
         return funtras::exp_t((1.0*funtras::div_t(a))*funtras::ln_t(x));
+    }
+}
+
+//log de base a
+double funtras::log_t(double x,double a){
+    if(x<0 or a<=0){
+        throw std::exception();
+    }else{
+
+        return funtras::ln_t(x)*funtras::div_t(funtras::ln_t(a));
     }
 }
 
