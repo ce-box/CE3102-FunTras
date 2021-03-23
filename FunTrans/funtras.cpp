@@ -1,7 +1,7 @@
 #include "funtras.hpp"
 
 // Calcula el factorial de n -> (n)!
-long long funtras::fact(int n){
+long double funtras::fact(int n){
     if (n == 0)
         return 1;
     return n* funtras::fact(n-1);
@@ -26,7 +26,7 @@ double funtras::div_xo(double a){
 }
 
 // Aproxima el valor de la division de 1 entre x
-double funtras::div_t(double x){
+long double funtras::div_t(double x){
 
     int sign = (x > 0)? 1:-1;
     double a = abs(x);
@@ -45,12 +45,214 @@ double funtras::div_t(double x){
 }
 
 // Retorna el valor de la base elevado a la potencia de x.
-double funtras::power_t(double x, double a){
-    double result = 1;
+long double funtras::power_t(double x, double a){
+    long double result = 1;
 
     while (x > 0){
-        result *= a;
+        result=result*a;
         x--;
     }
     return result;
 }
+
+
+//Seno hiperbolico
+//listo
+double funtras::sinh_t(double x){
+    int n=0;
+    double current=0;
+    double next=0;
+    while(n<max_iteraciones){
+        if(abs(next-current)<tolerancia && n!=0){
+            break;
+        }else{
+            current=current+(funtras::power_t(2*n+1,x)*funtras::div_t(funtras::fact(2*n+1)));
+            n++;
+            next=current+(funtras::power_t(2*n+1,x)*funtras::div_t(funtras::fact(2*n+1)));
+        }
+    }
+    return current;
+}
+
+//Seno
+//listo
+double funtras::sin_t(double x){
+    int n=0;
+    double current=0;
+    double next=0;
+    while(n<max_iteraciones){
+        if(abs(next-current)<tolerancia && n!=0){
+            break;
+        }else{
+            current=current+(funtras::power_t(n,-1)*(funtras::power_t(2*n+1,x))*funtras::div_t(funtras::fact(2*n+1)));
+            n++;
+            next=current+(funtras::power_t(n,-1)*(funtras::power_t(2*n+1,x))*funtras::div_t(funtras::fact(2*n+1)));
+        }
+    }
+    return current;
+
+}
+
+//Coseno hiperbolico
+//listo
+double funtras::cosh_t(double x){
+
+    int n=0;
+    double current=0;
+    double next=0;
+    while(n<max_iteraciones){
+        if(abs(next-current)<tolerancia && n!=0){
+            break;
+        }else{
+            current=current+((funtras::power_t(2*n,x))*funtras::div_t(funtras::fact(2*n)));
+            n++;
+            next=current+((funtras::power_t(2*n,x))*funtras::div_t(funtras::fact(2*n)));
+
+        }
+    }
+
+
+    return current;
+}
+//Coseno
+//listo
+double funtras::cos_t(double x){
+    int n=0;
+    double current=0;
+    double next=0;
+    while(n<max_iteraciones){
+        if(abs(next-current)<tolerancia && n!=0){
+            break;
+        }else{
+            current=current+(funtras::power_t(n,-1)*(funtras::power_t(2*n,x))*funtras::div_t(funtras::fact(2*n)));
+            n++;
+            next=current+(funtras::power_t(n,-1)*(funtras::power_t(2*n,x))*funtras::div_t(funtras::fact(2*n)));
+        }
+    }
+    return current;
+}
+
+
+
+//Euler elevado
+//listo
+double funtras::exp_t(double x){
+    int n=0;
+    double current=0;
+    double next=0;
+    while(n<max_iteraciones){
+        if(abs(next-current)<tolerancia && n!=0){
+            break;
+        }else{
+            current=current+((funtras::power_t(n,x))*funtras::div_t(funtras::fact(n)));
+            n++;
+            next=current+((funtras::power_t(n,x))*funtras::div_t(funtras::fact(n)));;
+        }
+    }
+    return current;
+}
+
+//Logaritmo natural
+//listo
+double funtras::ln_t(double x){
+    int n=0;
+    double prefix=(2*(x-1)/(x+1));
+    double current=0;
+    double next=0;
+    while(n<max_iteraciones){
+        if(abs(prefix*next-prefix*current)<tolerancia && n!=0){
+            break;
+        }else{
+            current=current+(((1+0.0)/(2*n+1))*funtras::power_t(2*n,((x-1+0.0)*funtras::div_t(x+1))));
+            n++;
+            next=current+(((1+0.0)/(2*n+1))*funtras::power_t(2*n,((x-1+0.0)*funtras::div_t(x+1))));
+        }
+    }
+
+    return prefix*current;
+}
+
+//Tangente
+//listo
+double funtras::tan_t(double x){
+    return funtras::sin_t(x)*funtras::div_t(funtras::cos_t(x));
+}
+//Tangente hiperbolico
+//listo
+double funtras::tanh_t(double x){
+    return funtras::sinh_t(x)*funtras::div_t(funtras::cosh_t(x));
+}
+
+//Arcoseno
+//listo
+double funtras::asin_t(double x){
+
+    int n=0;
+    double current=0;
+    double next=0;
+    if(x>1 or x<-1){
+        throw std::exception();
+    }else{
+        while(n<max_iteraciones){
+            if(abs(next-current)<tolerancia && n!=0){
+                break;
+            }else{
+                current=current+((funtras::fact(2*n)*
+                        funtras::div_t(funtras::power_t(n,4)
+                        *funtras::power_t(2,funtras::fact(n))*(2*n+1)))*funtras::power_t(2*n+1,x));
+                n++;
+                next=current+((funtras::fact(2*n)*funtras::div_t(funtras::power_t(n,4)*
+                        funtras::power_t(2,funtras::fact(n))*(2*n+1)))*funtras::power_t(2*n+1,x));
+            }
+        }
+        return current;
+    }
+}
+
+//Arcotangente
+//listo
+double funtras::atan_t(double x){
+
+    int n=0;
+    double current=0;
+    double next=0;
+    if(x>1 or x<-1){
+        throw std::exception();
+    }else{
+        while(n<11){
+            if(abs(next-current)<tolerancia && n!=0){
+                break;
+            }else{
+                current=current+(funtras::power_t(n,-1)*(funtras::power_t(2*n+1,x)*funtras::div_t(2*n+1)));
+                n++;
+                next=current+(funtras::power_t(n,-1)*(funtras::power_t(2*n+1,x)*funtras::div_t(2*n+1)));
+            }
+        }
+        return current;
+    }
+
+}
+
+//Raiz Cuadrada
+//listo
+double funtras::sqrt_t(double x){
+    if(x<0){
+        throw std::exception();
+    }else{
+
+        return funtras::exp_t(0.5*funtras::ln_t(x));
+    }
+
+}
+
+//Raiz con indice a
+//listo
+double funtras::root_t(double x,double a){
+    if(x<0 or a<=0){
+        throw std::exception();
+    }else{
+
+        return funtras::exp_t((1.0*funtras::div_t(a))*funtras::ln_t(x));
+    }
+}
+
