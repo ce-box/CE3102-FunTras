@@ -4,9 +4,7 @@ Biblioteca estática en C++ que permite aproximar el valor numérico de un conju
 
 ## Instalación
 
-### Instalador
-
-Ejecute el instalador de la biblioteca y ya podrá utilizar la biblioteca en sus programas.
+Puede descargar e instalar funTras usando el archivo de instalación para linux-64:
 
 ```shell
  $./install.sh
@@ -14,25 +12,33 @@ Ejecute el instalador de la biblioteca y ya podrá utilizar la biblioteca en sus
 
 ### Manual
 
-Para utilizar la biblioteca **funTras** primero debe tener instalado en su sistema un compilador de C++ como ```g++/gcc``` y las bibliotecas `iostream` y `math.h` que vienen incluidas en la instalación del compilador.
+Si prefiere realizar la instalación manualmente, la biblioteca **funTras** requiere tener instalado en su sistema un compilador de C++ como ```g++/gcc``` y las bibliotecas `iostream` y `math.h` que vienen incluidas en la instalación del compilador.
 
 ```shell
  $sudo apt-get install g++
 ```
 
-Lo siguiente que debe hacer es instalar la biblioteca:
+Luego debe copiar el archivo `funtras.hpp` al directorio del sistema `/usr/include` para que el `header` esté accesible desde el `PATH`. Puede hacerlo con el comando:
 
 ```shell
  $sudo cp src/funtras.hpp /usr/include
+```
+
+Debe crear los directorios `build` y `lib`:
+
+```shell
+ $mkdir build
+ $mkdir lib
+```
+
+Finalmente debe compilar y crear la biblioteca:
+
+```shell
+ $g++ -c src/funtras.cpp -o build/funtras.o
+ $ar cr lib/libfuntras.a build/funtras.o
 ```
 
 ## ¿Cómo utilizar la librería?
-
-Primero debe copiar el archivo `funtras.hpp` al directorio del sistema `/usr/include` para que el `header` esté accesible desde el `PATH`. Puede hacerlo con el comando:
-
-```shell
- $sudo cp src/funtras.hpp /usr/include
-```
 
 Para incluir la biblioteca en su código solamente deberá realizar el include, y recomendamos que utilice el namespace **funtras** para obtener un código más legible.
 
@@ -66,8 +72,11 @@ La biblioteca provee las siguientes funciones:
 
 Podrá encontrar más información en la documentación que ofrecemos en el [manual de usuario](google.com) de **funTras**.
 
+---
 ## Compilación
 
+Para compilar debe incluir la librería **funTras** como flags del compilador:
+
 ```shell
- $g++ your_file.cpp -L/path/to/lib -lfuntras -o a.out
+ $g++ your_file.cpp -std=c++11 -L/path/to/lib -lfuntras -o a.out
 ```
