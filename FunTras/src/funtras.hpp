@@ -10,8 +10,8 @@
  * @version 1.0
  * ---------------------------------------------------------------------------*/
 
-#ifndef _FUNTRAS_H
-#define _FUNTRAS_H
+#ifndef H_FUNTRAS
+#define H_FUNTRAS
 
 // Bibliotecas
 #include <iostream>
@@ -150,4 +150,4 @@ class funtras {
         static double log_t(double x, double a);
 };
 
-#endif // _FUNTRAS_H
+#endif // H_FUNTRAS

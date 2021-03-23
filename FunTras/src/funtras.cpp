@@ -1,4 +1,4 @@
-#include "funtras.hpp"
+#include <funtras.hpp>
 
 
 // Calcula el factorial de n -> (n)!

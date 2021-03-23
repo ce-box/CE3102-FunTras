@@ -1,4 +1,4 @@
-#include "funtras.hpp"
+#include <funtras.hpp>
 #include <iostream>
 
 using namespace std;
