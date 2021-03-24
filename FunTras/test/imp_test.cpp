@@ -55,6 +55,12 @@ void tan_t_test(){
 void asin_t_test(){
     cout << funtras::asin_t(0.5) << endl;
     cout << funtras::asin_t(-0.3) << endl;
+    cout << "--- "<< 2*funtras::asin_t(0.9) << endl;
+}
+
+void acos_t_test(){
+    cout << funtras::acos_t(0.5) << endl;
+    cout << funtras::acos_t(-0.3) << endl;
 }
 
 void atan_t_test(){
@@ -76,6 +82,11 @@ void log_t_test(){
     cout << funtras::log_t(50,3) << endl;
     cout << funtras::log_t(27,7) << endl;
 }
+
+void pi_test(){
+    cout << "PI = "<< funtras::pi_t() << endl;
+}
+
 int main(int argc, char const *argv[])
 {
     power_test();
@@ -93,5 +104,7 @@ int main(int argc, char const *argv[])
     sqrt_t_test();
     root_t_test();
     log_t_test();
+    pi_test();
+    acos_t_test();
     return 0;
 }

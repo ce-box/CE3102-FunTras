@@ -112,7 +112,7 @@ namespace funtras {
     /**
      * @brief Realiza la aproximacion de arcoseno de una variable.
      * @param x Valor de la variable.
-     * @return El resultado de acos(x).
+     * @return El resultado de asin(x).
      */
      double asin_t(double x);
 
@@ -122,6 +122,13 @@ namespace funtras {
      * @return El resultado de atan(x).
      */
      double atan_t(double x);
+
+    /**
+     * @brief Realiza la aproximacion de arcocoseno de una variable.
+     * @param x Valor de la variable.
+     * @return El resultado de acos(x).
+     */
+     double acos_t(double x);
 
     /**
      * @brief Realiza la aproximacion de raiz cuadrada de una variable.
@@ -145,6 +152,13 @@ namespace funtras {
      * @return resultado del logaritmo base a, de la variable x.
      */
      double log_t(double x, double a);
+
+    /**
+     * @brief Calcula un valor aproximado para PI utilizando la serie de Leibniz.
+     * @return Valor apróximado de PI. 
+     */
+     double pi_t();
+
 };
 
 #endif // H_FUNTRAS
