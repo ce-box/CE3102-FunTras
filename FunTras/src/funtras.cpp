@@ -241,6 +241,11 @@ double funtras::atan_t(double x){
     }
 }
 
+// Aproxima el valor del arcocoseno
+double funtras::acos_t(double x){
+    return funtras::pi_t()*funtras::div_t(2) - funtras::asin_t(x);
+}
+
 
 // Aproxima el valor de la raiz cuadrada
 double funtras::sqrt_t(double x){
