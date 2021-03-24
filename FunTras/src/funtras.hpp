@@ -117,8 +117,8 @@ namespace funtras {
      double asin_t(double x);
 
     /**
- * @brief Realiza la aproximacion de arcotangente de una variable.
- * @param x Valor de la variable.
+     * @brief Realiza la aproximacion de arcotangente de una variable.
+     * @param x Valor de la variable.
      * @return El resultado de atan(x).
      */
      double atan_t(double x);
