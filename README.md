@@ -73,6 +73,7 @@ La biblioteca provee las siguientes funciones:
 Podrá encontrar más información en la documentación que ofrecemos en el [manual de usuario](google.com) de **funTras**.
 
 ---
+
 ## Compilación
 
 Para compilar debe incluir la librería **funTras** como flags del compilador:
