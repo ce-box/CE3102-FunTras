@@ -16,24 +16,31 @@ fi
 
 cd FunTras
 
-if ! [ -d ./FunTras/build/ ]
-then
+BUILD=./build
+if [ ! -d "$BUILD" ]; then
     mkdir build
-    echo '[OK] Build directory created'
+    echo '[OK] $BUILD directory created'
 else
-    echo '[OK] /FunTras/build exists on filesystem'
+    echo '[OK] $BUILD exists on filesystem'
 fi
 
-if ! [ -d ./FunTras/lib/ ]
-then
+LIB=./lib
+if [ ! -d "$BUILD" ]; then
     mkdir lib
-    echo '[OK] Lib directory created'
+    echo '[OK] $LIB directory created'
 else
-    echo '[OK] /FunTras/lib exists on filesystem'
+    echo '[OK] $LIB exists on filesystem'
 fi
 
 # Agregar funtras.hpp 
+FILE=/usr/include/funtras.hpp
+if [ -f "$FILE" ]; then
+    echo "[OK] $FILE exists"
+    sudo rm /usr/include/funtras.hpp
+fi
+
 sudo cp ./src/funtras.hpp /usr/include
+echo "[OK] $FILE stored and updated".
 
 # Compilar y crear biblioteca
 g++ -Werror -c ./src/funtras.cpp -o ./build/funtras.o

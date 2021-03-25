@@ -1,5 +1,5 @@
 #include <funtras.hpp>
-
+#include <math.h>
 
 // Calcula el factorial de n -> (n)!
 long double funtras::fact(int n){
@@ -241,6 +241,11 @@ double funtras::atan_t(double x){
     }
 }
 
+// Aproxima el valor del arcocoseno
+double funtras::acos_t(double x){
+    return funtras::pi_t()*funtras::div_t(2) - funtras::asin_t(x);
+}
+
 
 // Aproxima el valor de la raiz cuadrada
 double funtras::sqrt_t(double x){
@@ -266,4 +271,21 @@ double funtras::log_t(double x,double a){
         throw std::exception();
     else
         return funtras::ln_t(x)*funtras::div_t(funtras::ln_t(a));
+}
+
+
+// Aproxima el valor de PI
+double funtras::pi_t(){
+    double pi = 0;
+    double error = funtras::tolerancia + 1;
+    int k = 0, den;
+
+    while (error > funtras::tolerancia && k < funtras::max_iteraciones){
+        den = (2*k)+1;
+        pi += 4*funtras::power_t(k,-1)* funtras::div_t(den);
+        error = abs( pi- M_PI );
+        k++;
+    }
+
+    return pi;
 }
