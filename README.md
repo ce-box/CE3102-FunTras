@@ -57,7 +57,7 @@ int main(int argc, char const *argv[])
 
 La biblioteca provee las siguientes funciones:
 
-|  Funcion  | Comando C++ |  Funcion  |  Comando C++ |
+|  Función  | Comando C++ |  Función  |  Comando C++ |
 |:---------:|:-----------:|:---------:|:------------:|
 |    1/x    |   div_t(x)  |    e^x    |   exp_t(x)   |
 |   sin(x)  |   sin_t(x)  |   cos(x)  |   cos_t(x)   |
