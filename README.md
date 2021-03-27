@@ -10,8 +10,6 @@ Puede descargar e instalar funTras usando el archivo de instalación para linux-
  $./install.sh
 ```
 
-### Manual
-
 Si prefiere realizar la instalación manualmente, la biblioteca **funTras** requiere tener instalado en su sistema un compilador de C++ como ```g++/gcc``` y las bibliotecas `iostream` y `math.h` que vienen incluidas en la instalación del compilador.
 
 ```shell
@@ -68,7 +66,7 @@ La biblioteca provee las siguientes funciones:
 |  sinh(x)  |  sinh_t(x)  |  cosh(x)  |   cosh_t(x)  |
 |  tanh(x)  |  tanh_t(x)  |    √(x)   |   sqrt_t(x)  |
 |   ⁶√(x)   | root_t(x,a) | arcsen(x) |   asin_t(x)  |
-| arctan(x) |  atan_t(x)  |           |              |
+| arctan(x) |  atan_t(x)  | arcos(x)  |   acos_t(x)  |
 
 Podrá encontrar más información en la documentación que ofrecemos en el [manual de usuario](google.com) de **funTras**.
 
