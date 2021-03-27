@@ -68,7 +68,7 @@ La biblioteca provee las siguientes funciones:
 |   ⁶√(x)   | root_t(x,a) | arcsen(x) |   asin_t(x)  |
 | arctan(x) |  atan_t(x)  | arcos(x)  |   acos_t(x)  |
 
-Podrá encontrar más información en la documentación que ofrecemos en el [manual de usuario](google.com) de **funTras**.
+Podrá encontrar más información en la documentación que ofrecemos en el [manual de usuario](https://github.com/ce-box/CE3102-FunTras/blob/main/manual_funtras.pdf) de **funTras**.
 
 ---
 
